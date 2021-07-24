@@ -12,4 +12,4 @@ Then you can use the `solve` command anywhere in your computer by typing:
 solve "10+4*2" # would output 16
 ```
 
-Error checking is not implemented yet, so input correct expressions are you will get seg fault.
+Error checking is not implemented yet, so input correct expressions or you will get seg fault.
