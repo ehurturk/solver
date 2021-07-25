@@ -9,7 +9,7 @@ make install
 ```
 Then you can use the `solve` command anywhere in your computer by typing:
 ```shell
-solve "10+4*2" # would output 16
+solve "10 + 4*2" # would output 16, whitespaces doesn't matter
 ```
 
 Error checking is not implemented yet, so input correct expressions or you will get seg fault.
