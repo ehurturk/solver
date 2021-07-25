@@ -7,6 +7,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <math.h>
 
 #define L_ASSOC    0
 #define R_ASSOC    1
@@ -19,6 +20,7 @@ const operatorMap::value_type operators[] = {
     operatorMap::value_type("-", std::make_pair<int, int>(0, L_ASSOC)),
     operatorMap::value_type("*", std::make_pair<int, int>(5, L_ASSOC)),
     operatorMap::value_type("/", std::make_pair<int, int>(5, L_ASSOC)),
+    operatorMap::value_type("^", std::make_pair<int, int>(5, L_ASSOC)),
 };
 
 operatorMap opmap(operators, operators + ARR_LEN(operators)); /* range based map constructor */
@@ -60,7 +62,7 @@ tokenize(const std::string& input)
 /* helper utility functins */
 bool isTokenOperator(const std::string& token)
 {
-    if (token == "*" || token == "+" || token == "/" || token == "-") return true;
+    if (token == "*" || token == "+" || token == "/" || token == "-" || token == "^") return true;
     return false;
 }
 
@@ -91,7 +93,7 @@ const std::vector<std::string> get_rpn(const std::vector<std::string>& tokens)
             const std::string& o1 = token;
             if (!op_stack.empty()) {
                 const std::string& o2 = op_stack.top();
-                while (isTokenOperator(o2) && (cmpPrecedence(o1, o2) == -1 || (cmpPrecedence(o1, o2) == 0 && getOperatorAssociativity(o1) == L_ASSOC))) {
+                while (isTokenOperator(o2) && ((getOperatorAssociativity(o1) == L_ASSOC && cmpPrecedence(o1, o2) == 0) || (cmpPrecedence(o1, o2) == -1))) {
                     op_stack.pop();
                     out.push_back(o2);
 
@@ -164,7 +166,10 @@ float eval_rpn(const std::vector<std::string>& rpn)
                     sum += e2 - e1;
                     break;
                 case '/':
-                    sum += e1 / e2;
+                    sum += e2 / e1;
+                    break;
+                case '^':
+                    sum += pow(e2, e1);
                     break;
             };
             out.push(std::to_string(sum));
