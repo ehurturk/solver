@@ -27,4 +27,9 @@ Consider the following expression:
 To get `0.625` as result, use this:
 `solve 10/(2^4)` - The result would be `0.625`
 
+## Roadmap & TODO
+Function support - e.g. `10 + pow(2)` would be converted to rpn as `10 2 pow +`. Tokenizing the funcs would be tough tho (+ variadic functions __maybe__)
+Unary operator support - e.g. `10! + 2` would be converted to rpn as `10 ! 2 +`. Would be challenging prob.
+
+
 Error checking is not implemented yet, so input correct expressions or you will get seg fault.
