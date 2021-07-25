@@ -16,10 +16,10 @@ solve "10 + 4*2" # would output 16, whitespaces doesn't matter
 | Operator        | Example Usage  | Result  |
 | ------------- |:-------------:| -----:|
 | `+`     | `solve "10+2"` | `12` |
-| `-`      | `solve 10-2`      |   `8` |
-| `/` | `solve 9/2`      |    `4.5` |
-| `*` | `solve 12*4`     |    `48` |
-| `^` | `solve 10^2`      |    `100` |
+| `-`      | `solve "10-2"`      |   `8` |
+| `/` | `solve "9/2"`      |    `4.5` |
+| `*` | `solve "12*4"`     |    `48` |
+| `^` | `solve "10^2"`      |    `100` |
 
 ### Some edge case scenarios
 Consider the following expression:
