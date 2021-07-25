@@ -29,6 +29,7 @@ To get `0.625` as result, use this:
 
 ## Roadmap & TODO
 Function support - e.g. `10 + pow(2)` would be converted to rpn as `10 2 pow +`. Tokenizing the funcs would be tough tho (+ variadic functions __maybe__)
+
 Unary operator support - e.g. `10! + 2` would be converted to rpn as `10 ! 2 +`. Would be challenging prob.
 
 
